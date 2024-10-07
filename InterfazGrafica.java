@@ -23,7 +23,8 @@ import java.io.IOException;
 @autor Maria Clara Santos Marca
 @codido sis: 202302136
 
-la seccion de interfaz grafica se encargara de todas las pantallas las cuales se muestran a lo largo de toda la ejecucion
+* Esta clase se encarga de crear y gestionar la interfaz gráfica de usuario para la
+ * administración de tareas. Permite a los usuarios registrarse, iniciar sesión y gestionar sus tareas.
 */
 public class InterfazGrafica {
     private JFrame ventanaPrincipal;
@@ -33,9 +34,13 @@ public class InterfazGrafica {
     private JTextField campoUsuario;
     private JTextField campoContraseña;
 
-    private int anchoCampoLogin = 10;
-    private int anchoCampoTarea = 10;
+    private int anchoCampoLogin = 9;
+    private int anchoCampoTarea = 9;
 
+      /**
+     * Constructor que inicializa los componentes principales de la ventana de la aplicación,
+     * comenzando con el formulario de autenticación.
+     */
     public InterfazGrafica() {
 
       // es encargado de la parte inicial donde se pone usuario y contraseña
@@ -75,7 +80,12 @@ public class InterfazGrafica {
 
         ventanaPrincipal.setVisible(true);
     }
-
+    
+ /**
+     * Realiza la  iniciarSesion al comprobar las credenciales ingresadas.
+     * Si son correctas, se procede a cargar las tareas del usuario correspondiente.
+     */
+    
     private void iniciarSesion() {
         String usuario = campoUsuario.getText();
         String contraseña = campoContraseña.getText();
@@ -91,6 +101,11 @@ public class InterfazGrafica {
         JOptionPane.showMessageDialog(ventanaPrincipal, "Usuario o contraseña incorrectos.");
     }
 
+    
+ /**
+     * Permite el registro de un nuevo usuario. Después de registrarse, se carga la
+     * ventana para gestionar las tareas de este usuario recién creado.
+     */
     private void registrarUsuario() {
         String usuario = campoUsuario.getText();
         String contraseña = campoContraseña.getText();
@@ -104,7 +119,12 @@ public class InterfazGrafica {
             JOptionPane.showMessageDialog(ventanaPrincipal, "Por favor ingrese usuario y contraseña.");
         }
     }
-// metodo encargado de donde se pone todas las lsitas de tareas
+
+    
+   /**
+     * interfaz mostrarListaDeTareas funciona para proporcionar botones
+     * para añadir, modificar, eliminar, completar, e imprimir las tareas.
+     */
     private void mostrarListaDeTareas() {
         ventanaPrincipal.getContentPane().removeAll();
         ventanaPrincipal.setSize(650, 450);
@@ -163,6 +183,11 @@ public class InterfazGrafica {
         ventanaPrincipal.repaint();
     }
 
+    
+ /**
+     * Abre un cuadro de diálogo para añadir una nueva tarea a la lista del usuario.
+     * Solicita nombre, fecha límite y prioridad de la tarea.
+     */
     private void añadirTarea() {
         JTextField campoNombre = new JTextField(10);
         JTextField campoFecha = new JTextField(10);
@@ -192,7 +217,10 @@ public class InterfazGrafica {
             }
         }
     }
-
+    
+  /**
+     * Marca la tarea seleccionada como completada y la actualiza en la lista visual.
+     */
     private void completarTarea() {
         Tarea tareaSeleccionada = listaTareas.getSelectedValue();
         if (tareaSeleccionada != null) {
@@ -204,7 +232,11 @@ public class InterfazGrafica {
             JOptionPane.showMessageDialog(ventanaPrincipal, "POR FAVOR SELECCIONE UNA TAREA PARA COMPLETAR.");
         }
     }
+    
 
+     /**
+     * Elimina la tarea seleccionada de la lista y guarda los cambios.
+     */
     private void eliminarTarea() {
         Tarea tareaSeleccionada = listaTareas.getSelectedValue();
         if (tareaSeleccionada != null) {
@@ -214,7 +246,12 @@ public class InterfazGrafica {
             JOptionPane.showMessageDialog(ventanaPrincipal, "POR FAVOR SELECCIONE UNA TAREA PARA ELIMINAR");
         }
     }
-
+    
+/**
+     * Permite modificar una tarea existente, cambiando su nombre, fecha y prioridad.
+     * Se actualiza la tarea en la lista visual y se guardan los cambios.
+     */
+    
     private void modificarTarea() {
         Tarea tareaSeleccionada = listaTareas.getSelectedValue();
         if (tareaSeleccionada != null) {
@@ -254,7 +291,10 @@ public class InterfazGrafica {
             JOptionPane.showMessageDialog(ventanaPrincipal, "Por favor seleccione una tarea para modificar.");
         }
     }
-
+    
+ /**
+     * Exporta la lista actual de tareas a un archivo de texto "lista_de_tareas.txt".
+     */
     private void imprimirLista() {
         String destinoTXT = "LISTA DE TAREAS.txt";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(destinoTXT))) {
@@ -270,6 +310,10 @@ public class InterfazGrafica {
         }
     }
 
+    
+    /**
+     * Cierra la aplicación y guarda las tareas del usuario actual.
+     */
     private void finalizarPrograma() {
         ventanaPrincipal.dispose();
         System.exit(0);
