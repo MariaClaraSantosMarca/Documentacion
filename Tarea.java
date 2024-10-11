@@ -1,19 +1,13 @@
 package metodos;
-
 import java.time.LocalDate;
-
 /**
-@autor Maria Clara Santos Marca
-@codido sis: 202302136
- * La clase Tarea representa una tarea individual con un nombre, una fecha de
- * vencimiento, una prioridad y un estado de completado.
+ * La clase Tarea representa una tarea individual con un nombre, una fecha de vencimiento, una prioridad y un estado de completado.
  */
 public class Tarea {
     private String nombreTarea;
     private LocalDate fechaTarea;
     private String prioridadTarea;
     private boolean estadoCompletada;
-
     /**
      * Constructor de la clase Tarea. Inicializa la tarea con su nombre, fecha y
      * prioridad, y establece el estado de completado como falso por defecto.
@@ -28,7 +22,6 @@ public class Tarea {
         this.prioridadTarea = prioridad;
         this.estadoCompletada = false;
     }
-
     /**
      * Obtiene el nombre de la tarea.
      * 
@@ -37,7 +30,6 @@ public class Tarea {
     public String getNombre() {
         return nombreTarea;
     }
-
     /**
      * Establece un nuevo nombre para la tarea.
      * 
@@ -46,7 +38,6 @@ public class Tarea {
     public void setNombre(String nombre) {
         this.nombreTarea = nombre;
     }
-
     /**
      * Obtiene la fecha de vencimiento de la tarea.
      * 
@@ -55,7 +46,6 @@ public class Tarea {
     public LocalDate getFecha() {
         return fechaTarea;
     }
-
     /**
      * Establece una nueva fecha de vencimiento para la tarea.
      * 
@@ -64,7 +54,6 @@ public class Tarea {
     public void setFecha(LocalDate fecha) {
         this.fechaTarea = fecha;
     }
-
     /**
      * Obtiene la prioridad de la tarea.
      * 
@@ -73,7 +62,6 @@ public class Tarea {
     public String getPrioridad() {
         return prioridadTarea;
     }
-
     /**
      * Establece una nueva prioridad para la tarea.
      * 
@@ -82,7 +70,6 @@ public class Tarea {
     public void setPrioridad(String prioridad) {
         this.prioridadTarea = prioridad;
     }
-
     /**
      * Verifica si la tarea ha sido completada.
      * 
@@ -91,7 +78,6 @@ public class Tarea {
     public boolean isCompletada() {
         return estadoCompletada;
     }
-
     /**
      * Establece el estado de completado de la tarea.
      * 
@@ -100,7 +86,6 @@ public class Tarea {
     public void setCompletada(boolean completada) {
         this.estadoCompletada = completada;
     }
-
     /**
      * Devuelve una representación en cadena de la tarea, incluyendo su nombre,
      * fecha, prioridad y estado de completado.
