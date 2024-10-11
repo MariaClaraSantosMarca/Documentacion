@@ -1,14 +1,9 @@
 package metodos;
-
 import java.time.LocalDate;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
-
-@autor Maria Clara Santos Marca
-@codido sis: 202302136
  * La clase ListaDeTareas representa una lista de tareas personales para un
  * usuario en particular. Esta clase permite agregar, eliminar, cargar y
  * guardar tareas de un usuario a un archivo de texto. Cada tarea está asociada
@@ -18,7 +13,6 @@ public class ListaDeTareas {
     private String nombreDeUsuario;
     private List<Tarea> tareasPersonales;
     private String nombreArchivoTareas;
-
     /**
      * Constructor de la clase ListaDeTareas. Inicializa la lista de tareas y
      * carga las tareas desde el archivo correspondiente si existe.
@@ -31,7 +25,6 @@ public class ListaDeTareas {
         this.nombreArchivoTareas = nombreUsuario + "_tareas.txt";
         cargarTareas();
     }
-
     /**
      * Agrega una nueva tarea a la lista de tareas del usuario y guarda las
      * tareas actualizadas en el archivo de texto.
@@ -42,7 +35,6 @@ public class ListaDeTareas {
         tareasPersonales.add(tarea);
         guardarTareas();
     }
-
     /**
      * Elimina una tarea de la lista de tareas del usuario y guarda las tareas
      * actualizadas en el archivo de texto.
@@ -53,7 +45,6 @@ public class ListaDeTareas {
         tareasPersonales.remove(tarea);
         guardarTareas();
     }
-
     /**
      * Obtiene la lista de todas las tareas personales del usuario.
      * 
@@ -62,7 +53,6 @@ public class ListaDeTareas {
     public List<Tarea> getTareas() {
         return tareasPersonales;
     }
-
     /**
      * Guarda la lista de tareas personales en un archivo de texto. Cada tarea
      * se guarda en una línea con su nombre, fecha, prioridad y estado de
@@ -79,7 +69,6 @@ public class ListaDeTareas {
             System.out.println("Error al guardar tareas: " + e.getMessage());
         }
     }
-
     /**
      * Carga las tareas personales desde un archivo de texto, si el archivo existe.
      * Si no existe, no realiza ninguna acción. Cada línea en el archivo
@@ -90,7 +79,6 @@ public class ListaDeTareas {
         if (!archivo.exists()) {
             return;
         }
-
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
